@@ -32,7 +32,10 @@ const deliveryInfoSchema = mongoose.Schema(
         packageType: {type:mongoose.Types.ObjectId, ref:'PackageType'},
         packageName: {type:String, required:true},
         additionalInfo: {type:String, required:true},
-        user_id :{type:String, required:true}
+        userId:{type:mongoose.Types.ObjectId, ref:'User'},
+        riderId:{type:mongoose.Types.ObjectId, ref:'Rider'},
+        isStarted:{type:Boolean, default:false},
+        isCompleted:{type:Boolean, default:false}
     },
     {timestamps:{
         createdAt:'created_at',
